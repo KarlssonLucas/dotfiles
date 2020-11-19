@@ -24,13 +24,18 @@ Plugin 'junegunn/goyo.vim'
 Plugin 'dracula/vim'
 Plugin 'sirtaj/vim-openscad'
 Plugin 'morhetz/gruvbox'
+Plugin 'dag/vim2hs'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 
+" Gitgutter 
+" ---------------------------------------------------
+set updatetime=250
+
 " Colors 
 " ---------------------------------------------------
-colorscheme MountainDew
+colorscheme gruvbox 
 set background=dark
 syntax enable
 set display+=lastline
@@ -94,6 +99,8 @@ set guioptions-=L
 set belloff=all
 set guifont=Consolas:h14
 set linebreak
+
+let g:haskell_conceal_wide = 1
 
 " Netrw, tabs and splits
 " -----------------------------------------------------

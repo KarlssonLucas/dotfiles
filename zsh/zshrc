@@ -5,3 +5,9 @@ autoload -Uz compinit && compinit -i
 autoload -U colors && colors
 PROMPT='%~ > '
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+function list_all() {
+    emulate -L zsh
+    ls -a
+}
+chpwd_functions=(${chpwd_functions[@]} "list_all")
