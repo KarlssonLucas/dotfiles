@@ -35,7 +35,8 @@ set updatetime=250
 
 " Colors 
 " ---------------------------------------------------
-colorscheme gruvbox 
+colorscheme dracula
+let g:dracula_italic = 0
 set background=dark
 syntax enable
 set display+=lastline
