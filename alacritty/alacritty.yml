@@ -1,0 +1,11 @@
+window:
+  padding:
+    x: 10
+    y: 10 
+  dyanmic_padding: false
+  decorations: none
+
+font:
+  size: 11.0
+
+

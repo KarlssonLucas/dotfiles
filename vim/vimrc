@@ -132,9 +132,7 @@ let mapleader = ","
 inoremap ( ()<Left>
 inoremap { {}<Left>
 inoremap [ []<Left>
-inoremap < <><Left>
 inoremap " ""<Left>
-inoremap ' ''<Left>
 
 nnoremap <space><space> /<++><CR>:noh<CR>4cl
 
