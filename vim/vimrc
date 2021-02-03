@@ -1,33 +1,29 @@
-"Rilles epic vimrc"
-
 set nocompatible              " be iMproved, required
 filetype off                  " required
 " set the runtime path to include Vundle and initialize
 set rtp+=$HOME/.vim/bundle/Vundle.vim/
 call vundle#begin('$HOME/.vim/bundle/')
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-" let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
+Plugin 'whatyouhide/vim-gotham'
 Plugin 'mattn/emmet-vim' 
-Plugin 'neovimhaskell/haskell-vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'miyakogi/seiya.vim'
 Plugin 'slim-template/vim-slim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'vincent-uden/LatexSnippets'
-Plugin 'rust-lang/rust.vim'
-Plugin 'junegunn/goyo.vim'
 Plugin 'dracula/vim'
 Plugin 'sirtaj/vim-openscad'
 Plugin 'morhetz/gruvbox'
-Plugin 'dag/vim2hs'
-" All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
+
+" Latex
+" ---------------------------------------------------
+autocmd Filetype tex setl updatetime=1
+let g:livepreview_previewer = 'open -a Preview'
+let g:tex_no_error=1
+autocmd! bufreadpost *.tex set syntax=context
 
 " Gitgutter 
 " ---------------------------------------------------
@@ -35,8 +31,7 @@ set updatetime=250
 
 " Colors 
 " ---------------------------------------------------
-colorscheme dracula
-let g:dracula_italic = 0
+colorscheme gruvbox
 set background=dark
 syntax enable
 set display+=lastline
@@ -129,11 +124,6 @@ inoremap <C-c> <Esc>
 set colorcolumn=0
 let mapleader = ","
 
-inoremap ( ()<Left>
-inoremap { {}<Left>
-inoremap [ []<Left>
-inoremap " ""<Left>
-
 nnoremap <space><space> /<++><CR>:noh<CR>4cl
 
 au FileType slim setl sw=2 sts=2 et
@@ -142,14 +132,11 @@ au FileType ruby setl sw=2 sts=2 et
 au FileType tex setl sw=2 sts=2 et
 au FileType tex set textwidth=0
 au FileType tex nnoremap <F3> :!xelatex <C-r>%<CR>
-au FileType tex nnoremap <F4> :!zathura %:r.pdf --fork<CR><CR>
+au FileType tex nnoremap <F6> :!open %:r.pdf <CR>
 au FileType tex execute 'setlocal dict+=~/github/dotfiles/latex.txt'
 au FileType tex inoremap { {}<Esc>i
 
 inoremap <C-K> <C-X><C-K>
-
-au FileType nroff nnoremap <F3> :!groff -ms -T pdf -k % > %:r.pdf<CR>
-au FileType nroff nnoremap <F4> :!zathura %:r.pdf --fork<CR><CR>
 
 au FileType cpp nnoremap <F3> :!make<CR>
 au FileType cpp nnoremap <F4> :!make crun<CR>
@@ -171,6 +158,8 @@ au FileType haskell nnoremap <F3> :!ghc -dynamic % -outputdir ./build<CR>
 au FileType haskell nnoremap <F4> :!./%:r<CR>
 
 au FileType java nnoremap <F4> :!java %<CR>
+
+au FileType tex nnoremap <F5> :!pdflatex %<CR>
 
 nnoremap <F1> :set nu! <CR>
 nnoremap <F2> :set rnu! <CR>
