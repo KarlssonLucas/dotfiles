@@ -159,7 +159,7 @@ au FileType haskell nnoremap <F4> :!./%:r<CR>
 
 au FileType java nnoremap <F4> :!java %<CR>
 
-au FileType tex nnoremap <F5> :!pdflatex %<CR>
+au FileType tex nnoremap <F5> :!xelatex %<CR>
 
 nnoremap <F1> :set nu! <CR>
 nnoremap <F2> :set rnu! <CR>
